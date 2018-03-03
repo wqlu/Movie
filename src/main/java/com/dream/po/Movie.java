@@ -1,5 +1,7 @@
 package com.dream.po;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Movie {
@@ -7,6 +9,7 @@ public class Movie {
 
     private String moviename;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date showyear;
 
     private String nation;

@@ -1,6 +1,7 @@
 package com.dream.service.impl;
 
 
+import com.dream.common.E3Result;
 import com.dream.common.EUDataGridResult;
 import com.dream.mapper.MovieMapper;
 import com.dream.po.Movie;
@@ -46,5 +47,19 @@ public class ItemServiceImpl implements ItemService {
         PageInfo<Movie> pageInfo = new PageInfo<Movie>(list);
         result.setTotal(pageInfo.getTotal());
         return result;
+    }
+
+    // 实现批量或者单独删除电影
+    public E3Result deleteMovies(int[] ids) {
+        for (int id : ids) {
+            movieMapper.deleteByPrimaryKey(id);
+        }
+        return E3Result.ok();
+    }
+
+    // 添加电影信息到数据库中
+    public E3Result createMovie(Movie movie) {
+        movieMapper.insert(movie);
+        return E3Result.ok();
     }
 }

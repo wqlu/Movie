@@ -28,7 +28,7 @@ public class TestPagehelper {
         List<Movie> list = mapper.selectByExample(example);
 
         for (Movie movie : list) {
-            System.out.println(movie.getMoviename());
+            System.out.println(movie.getShowyear());
         }
         // 取分页信息
         PageInfo<Movie> pageInfo = new PageInfo<>(list);
